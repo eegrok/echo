@@ -5,9 +5,9 @@ PORT = 23123
 server = nil
 if ARGV.count == 1
   server = ARGV[0]
-  puts "echoing data on port: #{PORT} on #{server}"
+  puts "echoing udp data on port: #{PORT} on #{server}"
 else
-  puts "echoing data on port: #{PORT} on all interfaces"
+  puts "echoing udp data on port: #{PORT} on all interfaces"
 end
 
 
