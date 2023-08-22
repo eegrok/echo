@@ -1,16 +1,19 @@
 #!/usr/bin/env ruby
 require 'socket'
 
-PORT = 23123
+port = 23123
 server = nil
-if ARGV.count == 1
+if ARGV.count > 0
   server = ARGV[0]
-  puts "echoing tcp data on port: #{PORT} on #{server}"
+  if ARGV.count > 1
+    port = ARGV[1].to_i
+  end
+  puts "echoing tcp data on port: #{port} on #{server}"
 else
-  puts "echoing tcp data on port: #{PORT} on all interfaces"
+  puts "echoing tcp data on port: #{port} on all interfaces"
 end
 
-server = TCPServer.new(server, PORT)
+server = TCPServer.new(server, port)
 loop do
   client = server.accept
   while line = client.gets
